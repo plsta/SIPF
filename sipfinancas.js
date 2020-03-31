@@ -2145,6 +2145,7 @@ let main = {
                             left join ven_pedidoitem pi on (p.id = pi.idpedido)
                             left join cad_item i on (pi.iditem = i.id)
                             where p.id = :idpedido
+                            order by pi.id
                             `, {
                                     type: db.sequelize.QueryTypes.SELECT
                                     , replacements: {
@@ -2186,6 +2187,7 @@ let main = {
                             from
                                 fin_mov m
                             where m.idpedido = :idpedido
+                            order by m.datavcto
                             `, {
                                     type: db.sequelize.QueryTypes.SELECT
                                     , replacements: {
