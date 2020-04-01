@@ -12,7 +12,7 @@ let main = {
                 onsave: async function (obj, next) {
                     try {
                         obj.register.nomecompleto = obj.register.codigo + ' - ' + obj.register.nome;
-                        next(obj);
+                        await next(obj);
                     } catch (err) {
                         return application.fatal(obj.res, err);
                     }
@@ -22,7 +22,7 @@ let main = {
                 onsave: async function (obj, next) {
                     try {
                         obj.register.descricaocompleta = obj.register.codigo + ' - ' + obj.register.descricao;
-                        next(obj);
+                        await next(obj);
                     } catch (err) {
                         return application.fatal(obj.res, err);
                     }
@@ -213,7 +213,7 @@ let main = {
                             return application.error(obj.res, { msg: 'Existe um fechamento de caixa maior que desta data' });
                         }
 
-                        next(obj);
+                        await next(obj);
 
                     } catch (err) {
                         return application.fatal(obj.res, err);
@@ -228,7 +228,7 @@ let main = {
                             obj.register.data = moment();
                         }
 
-                        next(obj);
+                        await next(obj);
                     } catch (err) {
                         return application.fatal(obj.res, err);
                     }
@@ -2108,7 +2108,7 @@ let main = {
                             return application.error(obj.res, { msg: 'Nâo é permitido alterações na venda com parcelas geradas' });
                         }
 
-                        next(obj);
+                        await next(obj);
                     } catch (err) {
                         return application.fatal(obj.res, err);
                     }
