@@ -3,11 +3,10 @@ $(function () {
     if (application.isRegisterview) {
         $(document).on('app-datatable', function (e, table) {
 
-
             $('button.btnfilter[data-table="' + table + '"]').remove();
 
             switch (table) {
-                case 'tableviewvenda_-_parcela':// Pagamentos
+                case 'viewvenda_-_parcela':// Pagamentos
 
                     tables[table].button($('.btn-success')).action(function (e) {
                         application.jsfunction('sipfinancas.financeiro.movparc.__venda_adicionarModal', { id: application.functions.getId() }, function (response) {
